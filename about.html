@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — IntelliHire</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#06060f;--bg2:#0d0d1a;--bg3:#13131f;--surface:#1a1a2e;--surface2:#20203a;
+  --border:#ffffff12;--border2:#ffffff1e;
+  --cyan:#00d4ff;--green:#22c55e;--amber:#f59e0b;--purple:#a78bfa;
+  --red:#ef4444;--pink:#ec4899;--blue:#3b82f6;--ant:#cc785c;
+  --text:#f0f0ff;--text2:#a0a0c0;--text3:#60607a;
+  --fd:'Syne',sans-serif;--fm:'JetBrains Mono',monospace;--fb:'DM Sans',sans-serif;
+  --r:12px;--r2:8px;
+}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);min-height:100vh}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(6,6,15,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--fd);font-size:1.1rem;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.nav-logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{font-size:.82rem;color:var(--text2);text-decoration:none;transition:color .2s;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan)}
+.nav-badge{font-family:var(--fm);font-size:.65rem;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.2);color:var(--cyan);padding:3px 10px;border-radius:20px}
+
+/* HERO */
+.hero{padding:5rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 500px at 50% 0%,rgba(0,212,255,.06) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:.68rem;background:rgba(204,120,92,.1);border:1px solid rgba(204,120,92,.25);color:var(--ant);padding:5px 14px;border-radius:20px;margin-bottom:1.5rem}
+.hero h1{font-family:var(--fd);font-size:clamp(2.4rem,7vw,4rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:1rem}
+.hero h1 .accent{color:var(--cyan)}
+.hero-sub{font-size:1rem;color:var(--text2);max-width:640px;margin:0 auto 2rem;line-height:1.7}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:2.5rem}
+.hero-tag{font-family:var(--fm);font-size:.67rem;padding:4px 12px;border-radius:6px;border:1px solid var(--border2);color:var(--text2);background:var(--surface)}
+.hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-n{font-family:var(--fd);font-size:2rem;font-weight:800;color:var(--cyan)}
+.hstat-l{font-size:.75rem;color:var(--text3);margin-top:2px}
+
+/* SECTION */
+.section{padding:3rem 2rem;max-width:1100px;margin:0 auto}
+.section-title{font-family:var(--fd);font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.4rem}
+.section-sub{font-size:.87rem;color:var(--text2);margin-bottom:2rem}
+.slabel{font-family:var(--fm);font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin-bottom:.875rem;display:flex;align-items:center;gap:10px}
+.slabel::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* MISSION */
+.mission-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:2rem}
+.mcard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;transition:border-color .2s}
+.mcard:hover{border-color:var(--border2)}
+.mcard-icon{font-size:1.5rem;margin-bottom:.75rem}
+.mcard h3{font-size:.95rem;font-weight:600;margin-bottom:.5rem}
+.mcard p{font-size:.8rem;color:var(--text2);line-height:1.7}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.875rem;margin-bottom:1.5rem}
+.acard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem}
+.ah{display:flex;align-items:center;gap:10px;margin-bottom:.6rem}
+.ai{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.an{font-size:.875rem;font-weight:500}
+.at{font-size:.67rem;color:var(--text3);font-family:var(--fm);margin-top:1px}
+.ad{font-size:.78rem;color:var(--text2);line-height:1.6;margin-bottom:.625rem}
+.au{font-size:.65rem;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.35rem;font-family:var(--fm)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:.67rem;padding:2px 8px;border-radius:4px;font-weight:500;border:1px solid}
+.c-cyan{background:rgba(0,212,255,.07);color:var(--cyan);border-color:rgba(0,212,255,.18)}
+.c-green{background:rgba(34,197,94,.07);color:var(--green);border-color:rgba(34,197,94,.18)}
+.c-ant{background:rgba(204,120,92,.09);color:var(--ant);border-color:rgba(204,120,92,.22)}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;font-size:.78rem;margin-bottom:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+th{text-align:left;padding:9px 12px;font-size:.66rem;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);border-bottom:1px solid var(--border);font-family:var(--fm);background:var(--surface)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text2);line-height:1.5;font-size:.77rem}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--surface)}
+.badge{display:inline-block;font-size:.63rem;font-weight:500;padding:2px 7px;border-radius:4px;font-family:var(--fm)}
+
+/* STACK ROWS */
+.srow{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)}
+.srow:last-child{border-bottom:none}
+.slayer{font-family:var(--fm);font-size:.67rem;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;min-width:110px;padding-top:3px;flex-shrink:0}
+.spills{display:flex;flex-wrap:wrap;gap:4px}
+.spill{font-size:.7rem;padding:3px 8px;border-radius:4px;background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
+footer p{font-size:.78rem;color:var(--text3)}
+footer a{color:var(--cyan);text-decoration:none}
+
+@media(max-width:600px){
+  nav{padding:0 1rem}
+  .nav-links{gap:.75rem}
+  .nav-links a{font-size:.75rem}
+  .hero{padding:3.5rem 1.25rem 2.5rem}
+  .section{padding:2rem 1.25rem}
+  .hero-stats{gap:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class=\"nav-logo\">Intelli<span>Hire</span></div>
+  <div class=\"nav-links\">
+    <a href=\"index.html\">Home</a>
+    <a href=\"about.html\" class=\"active\">About</a>
+    <span class=\"nav-badge\">B.Tech CSE · AI/ML</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class=\"hero\">
+  <div class=\"hero-eyebrow\">🤖 Powered by Anthropic Claude</div>
+  <h1>How <span class=\"accent\">IntelliHire</span><br>Actually Works</h1>
+  <p class=\"hero-sub\">A complete AI hiring platform built entirely on the Anthropic API (Claude), deployed via GitHub Pages — no servers, no cloud bills, no complexity.</p>
+  <div class=\"hero-tags\">
+    <span class=\"hero-tag\">claude-sonnet-4-5</span>
+    <span class=\"hero-tag\">Anthropic API</span>
+    <span class=\"hero-tag\">Vanilla JS</span>
+    <span class=\"hero-tag\">GitHub Pages</span>
+    <span class=\"hero-tag\">GitHub Actions CI/CD</span>
+    <span class=\"hero-tag\">Zero Backend</span>
+  </div>
+  <div class=\"hero-stats\">
+    <div class=\"hstat\"><div class=\"hstat-n\">5</div><div class=\"hstat-l\">AI Modules</div></div>
+    <div class=\"hstat\"><div class=\"hstat-n\">1</div><div class=\"hstat-l\">API (Claude)</div></div>
+    <div class=\"hstat\"><div class=\"hstat-n\">$0</div><div class=\"hstat-l\">Infra Cost</div></div>
+    <div class=\"hstat\"><div class=\"hstat-n\">100%</div><div class=\"hstat-l\">Static Deploy</div></div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<div class=\"section\">
+  <div class=\"section-title\">Why This Stack?</div>
+  <p class=\"section-sub\">One API key. One repository. One deployment platform. Maximum intelligence.</p>
+  <div class=\"mission-grid\">
+    <div class=\"mcard\">
+      <div class=\"mcard-icon\">🧠</div>
+      <h3>Claude Does Everything</h3>
+      <p>Resume parsing, adaptive MCQ generation, code review, HR simulation, behavioral scoring — all powered by a single Anthropic API key via direct fetch() calls from the browser. No middleware needed.</p>
+    </div>
+    <div class=\"mcard\">
+      <div class=\"mcard-icon\">📦</div>
+      <h3>GitHub as Backend</h3>
+      <p>The GitHub repository is both the codebase and the CI/CD pipeline. GitHub Actions auto-builds and deploys every push. GitHub Pages serves the static frontend globally with HTTPS out of the box.</p>
+    </div>
+    <div class=\"mcard\">
+      <div class=\"mcard-icon\">⚡</div>
+      <h3>Zero Infrastructure</h3>
+      <p>No FastAPI, no Docker, no cloud VMs, no databases. All state lives in localStorage and sessionStorage. All intelligence lives in Claude. The entire platform is a folder of HTML, CSS, and JS files.</p>
+    </div>
+    <div class=\"mcard\">
+      <div class=\"mcard-icon\">🔐</div>
+      <h3>API Key Security</h3>
+      <p>The ANTHROPIC_API_KEY is stored as a GitHub Actions secret and injected at build time into a config file — never committed to the repo or exposed in public source. Requests go directly to api.anthropic.com.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TECH OVERVIEW -->
+<div class=\"section\">
+  <div class=\"slabel\">Core Technology</div>
+  <div style=\"background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;margin-bottom:2rem\">
+    <div class=\"srow\"><div class=\"slayer\">AI / LLM</div><div class=\"spills\"><span class=\"spill\">Anthropic Claude claude-sonnet-4-5</span><span class=\"spill\">claude-haiku-4-5 (fast tasks)</span><span class=\"spill\">Streaming API</span></div></div>
+    <div class=\"srow\"><div class=\"slayer\">Frontend</div><div class=\"spills\"><span class=\"spill\">HTML5</span><span class=\"spill\">CSS3 (CSS Variables)</span><span class=\"spill\">Vanilla JS (ES2023)</span><span class=\"spill\">Fetch API</span><span class=\"spill\">Web Speech API</span><span class=\"spill\">MediaDevices (webcam)</span></div></div>
+    <div class=\"srow\"><div class=\"slayer\">State</div><div class=\"spills\"><span class=\"spill\">localStorage (session)</span><span class=\"spill\">sessionStorage (temp)</span><span class=\"spill\">No external DB</span></div></div>\n    <div class=\"srow\"><div class=\"slayer\">Hosting</div><div class=\"spills\"><span class=\"spill\">GitHub Pages</span><span class=\"spill\">HTTPS (auto)</span><span class=\"spill\">Global CDN</span></div></div>\n    <div class=\"srow\"><div class=\"slayer\">CI/CD</div><div class=\"spills\"><span class=\"spill\">GitHub Actions</span><span class=\"spill\">Secret injection (ANTHROPIC_API_KEY)</span><span class=\"spill\">Auto-deploy on push</span></div></div>\n  </div>\n</div>\n\n<!-- MODULES -->\n<div class=\"section\">\n  <div class=\"section-title\">Platform Modules</div>\n  <p class=\"section-sub\">Five AI-powered hiring stages, all driven by Claude</p>\n  <div class=\"grid\">\n    <div class=\"acard\" id=\"m1\"><div class=\"ah\"><div class=\"ai\" style=\"background:rgba(0,212,255,.12)\">📝</div><div><div class=\"an\">Module 1: ATS Resume Analyzer</div><div class=\"at\">Live</div></div></div><div class=\"ad\">Claude reads your resume + JD, scores it, rewrites weak bullets, generates a polished PDF. Powered by claude-sonnet-4-5 with structured JSON output for precise resume extraction.</div><div class=\"au\">Features</div><div class=\"chips\"><span class=\"chip c-cyan\">PDF parsing</span><span class=\"chip c-cyan\">ATS scoring</span><span class=\"chip c-cyan\">Bullet rewriting</span><span class=\"chip c-cyan\">PDF generation</span></div></div>\n    <div class=\"acard\" id=\"m2\"><div class=\"ah\"><div class=\"ai\" style=\"background:rgba(34,197,94,.12)\">🎯</div><div><div class=\"an\">Module 2: Aptitude Round</div><div class=\"at\">Live</div></div></div><div class=\"ad\">Claude generates adaptive MCQs in real time, adjusting difficulty based on your answers. Web Speech API enables voice mode for hands-free testing with real-time transcription.</div><div class=\"au\">Features</div><div class=\"chips\"><span class=\"chip c-green\">Adaptive difficulty</span><span class=\"chip c-green\">Voice mode</span><span class=\"chip c-green\">Real-time scoring</span><span class=\"chip c-green\">Chart.js reports</span></div></div>\n    <div class=\"acard\" id=\"m3\"><div class=\"ah\"><div class=\"ai\" style=\"background:rgba(245,158,11,.12)\">💻</div><div><div class=\"an\">Module 3: Technical Round</div><div class=\"at\">In Progress</div></div></div><div class=\"ad\">Claude acts as a senior engineer — reviews your code, asks follow-ups, scores logic and style. Monaco Editor integration for syntax highlighting and inline feedback rendering.</div><div class=\"au\">Features</div><div class=\"chips\"><span class=\"chip c-ant\">Code review</span><span class=\"chip c-ant\">Follow-up Q&A</span><span class=\"chip c-ant\">Monaco editor</span><span class=\"chip c-ant\">Multi-language</span></div></div>\n    <div class=\"acard\" id=\"m4\"><div class=\"ah\"><div class=\"ai\" style=\"background:rgba(167,139,250,.12)\">🧑‍💼</div><div><div class=\"an\">Module 4: HR Simulator</div><div class=\"at\">Upcoming</div></div></div><div class=\"ad\">Claude simulates an HR interviewer using STAR framework, scores communication and clarity. Web Speech API captures voice, JS counts filler words, Claude evaluates fluency.</div><div class=\"au\">Features</div><div class=\"chips\"><span class=\"chip c-ant\">STAR scoring</span><span class=\"chip c-ant\">Filler detection</span><span class=\"chip c-ant\">Voice input</span><span class=\"chip c-ant\">Fluency reports</span></div></div>\n    <div class=\"acard\" id=\"m5\"><div class=\"ah\"><div class=\"ai\" style=\"background:rgba(239,68,68,.12)\">🎥</div><div><div class=\"an\">Module 5: Behavioral Analysis</div><div class=\"at\">Upcoming</div></div></div><div class=\"ad\">Claude analyzes webcam-captured answers for tone, filler words, pacing, and confidence signals. MediaDevices captures video, Web Speech API transcribes, Claude scores multi-dimensional behavioral traits.</div><div class=\"au\">Features</div><div class=\"chips\"><span class=\"chip c-ant\">Video capture</span><span class=\"chip c-ant\">Real-time transcription</span><span class=\"chip c-ant\">Tone analysis</span><span class=\"chip c-ant\">Radar charts</span></div></div>\n  </div>\n</div>\n\n<!-- DEPLOYMENT -->\n<div class=\"section\">\n  <div class=\"section-title\">Deployment Architecture</div>\n  <p class=\"section-sub\">How the entire platform ships from a single GitHub repo</p>\n  <div style=\"background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;margin-bottom:2rem\">\n    <div class=\"srow\"><div class=\"slayer\">Source</div><div class=\"spills\"><span class=\"spill\">GitHub Repository (public)</span><span class=\"spill\">All HTML/CSS/JS committed</span><span class=\"spill\">No server code</span></div></div>\n    <div class=\"srow\"><div class=\"slayer\">Secret</div><div class=\"spills\"><span class=\"spill\">ANTHROPIC_API_KEY stored as secret</span><span class=\"spill\">Injected at build time</span><span class=\"spill\">Never in source code</span></div></div>\n    <div class=\"srow\"><div class=\"slayer\">CI/CD</div><div class=\"spills\"><span class=\"spill\">GitHub Actions workflow</span><span class=\"spill\">Triggers on push to master-branch</span><span class=\"spill\">Builds config.js</span><span class=\"spill\">Deploys to gh-pages</span></div></div>\n    <div class=\"srow\"><div class=\"slayer\">Hosting</div><div class=\"spills\"><span class=\"spill\">GitHub Pages (static)</span><span class=\"spill\">HTTPS enforced (auto)</span><span class=\"spill\">Global CDN</span></div></div>\n    <div class=\"srow\"><div class=\"slayer\">Runtime</div><div class=\"spills\"><span class=\"spill\">Browser fetch() direct to api.anthropic.com</span><span class=\"spill\">No proxy or backend</span><span class=\"spill\">CORS enabled</span></div></div>\n  </div>\n</div>\n\n<!-- FOOTER -->\n<footer>\n  <p>IntelliHire © 2025 · <a href=\"https://github.com/Student-Cybrarians/intellihire-v4\">Student-Cybrarians</a> · Built with Anthropic Claude API + GitHub Pages</p>\n</footer>\n\n<script src=\"config.js\"></script>\n<script src=\"api.js\"></script>\n</body>\n</html>"
