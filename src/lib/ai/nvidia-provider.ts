@@ -4,6 +4,7 @@ import { NVIDIA_MODELS } from "./model-registry";
 import { AIProvider, AIRequest, AIResponse } from "./types";
 export class NvidiaAIProvider implements AIProvider {
   private used = 0;
+  private usedDay = new Date().toISOString().slice(0, 10);
   constructor(private readonly fetcher: typeof fetch = fetch) {}
   async healthCheck() {
     return {
