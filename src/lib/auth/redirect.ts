@@ -3,7 +3,8 @@ export function safeRedirectPath(value: string | null | undefined): string {
   try {
     if (value.startsWith("/") && !value.startsWith("//") && !value.includes("\\")) return value;
     const url = new URL(value);
-    return url.origin === process.env.APP_URL
+    const appOrigin = process.env.APP_URL ? new URL(process.env.APP_URL).origin : "";
+    return appOrigin && url.origin === appOrigin
       ? `${url.pathname}${url.search}${url.hash}`
       : "/dashboard";
   } catch {
