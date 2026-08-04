@@ -11,9 +11,8 @@ type OAuthState = {
   exp: number;
 };
 function sign(payload: string) {
-  return createHmac("sha256", config.SESSION_SECRET ?? "test-secret-test-secret-test-secret-123")
-    .update(payload)
-    .digest("base64url");
+  if (!config.SESSION_SECRET) throw new Error("MISSING_SESSION_SECRET");
+  return createHmac("sha256", config.SESSION_SECRET).update(payload).digest("base64url");
 }
 function pack(data: OAuthState) {
   const payload = Buffer.from(JSON.stringify(data)).toString("base64url");
