@@ -16,7 +16,6 @@ export function googleAuthorizeUrl(params: {
   state: string;
   nonce: string;
   codeChallenge: string;
-  redirectTo: string;
 }) {
   const url = new URL("https://accounts.google.com/o/oauth2/v2/auth");
   url.search = new URLSearchParams({
