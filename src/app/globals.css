@@ -1,0 +1,172 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #07111f;
+  color: #f8fafc;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+a {
+  color: inherit;
+}
+.entry {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: clamp(1.25rem, 4vw, 4rem);
+  background:
+    radial-gradient(circle at 20% 20%, #2563eb55, transparent 34%),
+    linear-gradient(135deg, #07111f, #10223f 48%, #0f172a);
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 760px;
+}
+.brand {
+  font-weight: 900;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: -0.07em;
+}
+.eyebrow {
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+}
+.tagline {
+  font-size: clamp(1.7rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  margin: 0.5rem 0 1rem;
+}
+.subtitle {
+  color: #cbd5e1;
+  font-size: 1.15rem;
+  max-width: 55ch;
+}
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+.benefits li {
+  background: #ffffff12;
+  border: 1px solid #ffffff22;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.cardWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.authCard {
+  width: min(100%, 430px);
+  background: #fffffff2;
+  color: #0f172a;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 24px 80px #0008;
+}
+.googleBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 1rem 1.2rem;
+  background: #111827;
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.googleBtn:focus-visible {
+  outline: 4px solid #60a5fa;
+  outline-offset: 3px;
+}
+.googleBtn[aria-disabled="true"] {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.msg {
+  border-radius: 0.9rem;
+  padding: 0.85rem;
+  margin: 1rem 0;
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+.error {
+  background: #fef2f2;
+  color: #991b1b;
+}
+.success {
+  background: #ecfdf5;
+  color: #065f46;
+}
+.muted {
+  color: #475569;
+}
+.links {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff6;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 850px) {
+  .entry {
+    grid-template-columns: 1fr;
+  }
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    text-align: center;
+  }
+  .cardWrap {
+    align-items: start;
+  }
+}
+@media (max-width: 520px) {
+  .entry {
+    padding: 1rem;
+  }
+  .authCard {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+  .brand {
+    font-size: 3rem;
+  }
+}

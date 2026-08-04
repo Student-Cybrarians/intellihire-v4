@@ -1,0 +1,11 @@
+import { NextRequest, NextResponse } from "next/server";
+import { assertAuthConfig } from "@/lib/config";
+import { beginOAuthState } from "@/lib/auth/oauth-store";
+import { googleAuthorizeUrl } from "@/lib/auth/google";
+import { safeRedirectPath } from "@/lib/auth/redirect";
+export async function GET(req: NextRequest) {
+  assertAuthConfig();
+  const redirectTo = safeRedirectPath(req.nextUrl.searchParams.get("redirectTo"));
+  const state = beginOAuthState(redirectTo);
+  return NextResponse.redirect(googleAuthorizeUrl(state));
+}
