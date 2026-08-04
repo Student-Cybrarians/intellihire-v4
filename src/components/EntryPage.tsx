@@ -10,15 +10,16 @@ const benefits = [
 ];
 export function EntryPage() {
   const [loading, setLoading] = useState(false);
-  const status = useMemo(
-    () =>
-      new URLSearchParams(typeof window !== "undefined" ? window.location.search : "").get("auth"),
+  const params = useMemo(
+    () => new URLSearchParams(typeof window !== "undefined" ? window.location.search : ""),
     [],
   );
+  const status = params.get("auth");
+  const redirectTo = params.get("redirectTo") ?? "/dashboard";
   const onGoogle = () => {
     if (loading) return;
     setLoading(true);
-    window.location.assign(`/api/auth/google?redirectTo=${encodeURIComponent("/dashboard")}`);
+    window.location.assign(`/api/auth/google?redirectTo=${encodeURIComponent(redirectTo)}`);
   };
   return (
     <main className="entry">
