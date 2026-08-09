@@ -3,6 +3,9 @@ import { assertAuthConfig } from "@/lib/config";
 import { beginOAuthState } from "@/lib/auth/oauth-store";
 import { googleAuthorizeUrl } from "@/lib/auth/google";
 import { safeRedirectPath } from "@/lib/auth/redirect";
+
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   assertAuthConfig();
   const redirectTo = safeRedirectPath(req.nextUrl.searchParams.get("redirectTo"));

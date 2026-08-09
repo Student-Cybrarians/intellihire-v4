@@ -4,6 +4,9 @@ import { exchangeCodeForTokens, verifyGoogleIdToken } from "@/lib/auth/google";
 import { loginWithGoogleClaims } from "@/lib/auth/login";
 import { safeRedirectPath } from "@/lib/auth/redirect";
 import { logSecurity } from "@/lib/security/logging";
+
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   const appUrl = process.env.APP_URL ?? req.nextUrl.origin;
   try {
