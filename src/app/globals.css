@@ -150,7 +150,10 @@ a {
   font-weight: 800;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .googleBtn:hover:not(:disabled) {
