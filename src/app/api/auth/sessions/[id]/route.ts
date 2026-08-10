@@ -5,6 +5,9 @@ import { sha256 } from "@/lib/auth/crypto";
 import { requireAuth } from "@/lib/auth/guards";
 import { clearSessionCookie, SESSION_COOKIE } from "@/lib/auth/session";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
   const auth = await requireAuth();
   if ("error" in auth) return auth.error;
