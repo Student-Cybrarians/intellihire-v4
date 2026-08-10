@@ -11,7 +11,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx prisma generate
-      - run: npx prettier src/app/globals.css src/lib/auth/oauth-store.ts src/test/setup.ts
       - run: npm run format
       - run: npm run lint
       - run: npm run typecheck
