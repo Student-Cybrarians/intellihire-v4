@@ -34,10 +34,7 @@ function unpack(value: string): OAuthState {
   const received = Buffer.from(mac);
   const expectedBuffer = Buffer.from(expected);
 
-  if (
-    received.length !== expectedBuffer.length ||
-    !timingSafeEqual(received, expectedBuffer)
-  ) {
+  if (received.length !== expectedBuffer.length || !timingSafeEqual(received, expectedBuffer)) {
     throw new Error("INVALID_STATE");
   }
 
