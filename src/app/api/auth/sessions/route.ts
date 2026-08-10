@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db/prisma";
 import { requireAuth } from "@/lib/auth/guards";
+
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export async function GET() {
   const auth = await requireAuth();
   if ("error" in auth) return auth.error;
+
   const sessions = await prisma.session.findMany({
     where: { userId: auth.user.id },
     select: {
@@ -18,5 +23,6 @@ export async function GET() {
     },
     orderBy: { lastSeenAt: "desc" },
   });
+
   return NextResponse.json({ sessions });
 }
